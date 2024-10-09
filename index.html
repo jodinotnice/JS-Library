@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    
+    <title>Your Library</title>
+  </head>
+  <body>
+    <main class="cards-container">
+      <h1 class="main-title"> Your library</h1>
+
+      <form id="books-form" >
+        <div>
+          <label for="name">Book Name</label>
+          <input id="name" type="text" />
+        </div>
+        <div></div>
+          <label for="author">Author</label>
+          <input id="author" type="text" />
+        </div>
+        <div></div>
+          <label for="pages">Pages</label>
+          <input id="pages" type="text" />
+        </div>
+        <div></div>
+          <label for="read">Read</label>
+          <input id="read" type="checkbox" />
+        </div>
+        <button class="confirm-btn" type="submit">Enregistrer</button>
+      </form>
+      <div id="books-container">
+
+      </div>
+    </main>
+    <script src="Library.js" defer></script>
+  </body>
+</html>
