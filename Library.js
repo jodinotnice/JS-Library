@@ -26,9 +26,10 @@ addNewBook.addEventListener("click", () => {
   dialogModal.showModal();
 });
 
-confirmBtn.addEventListener("click", (event) => {
+formSelector.addEventListener("submit", (event) => {
   addBookToLibrary(event);
   event.preventDefault();
+  formSelector.reset();
   dialogModal.close();
 });
 
@@ -59,6 +60,7 @@ function addBookToLibrary(event) {
   const newBook = new Book(bookName, bookAuthor, bookPages, bookRead);
 
   console.log(newBook.info());
+  // const bookIndex = myLibrary.indexOf(newBook);
 
   myLibrary.push(newBook);
   console.log(myLibrary);
@@ -67,10 +69,13 @@ function addBookToLibrary(event) {
 }
 
 function displayBooks() {
-  for (let i = 0; i < myLibrary.length; i++) {
-    const book = myLibrary[i];
+  const bookCards = document.querySelectorAll(".book-card");
+  bookCards.forEach((card) => card.remove());
+
+  myLibrary.forEach((book, index) => {
     const bookDiv = document.createElement("div");
     bookDiv.classList.add("book-card");
+    bookDiv.setAttribute("id", `book${index}`);
 
     const nameP = document.createElement("p");
     nameP.textContent = book.name;
@@ -88,8 +93,35 @@ function displayBooks() {
     readP.textContent = `${book.read ? "Read." : "Not read yet."}`;
     bookDiv.appendChild(readP);
 
-    cardContainer.appendChild(bookDiv);
-  }
+    const btnContainer = document.createElement("div");
+    btnContainer.classList.add("btn-container");
+    const readCardBtn = document.createElement("button");
+    readCardBtn.classList.add("read-btn");
+    readCardBtn.textContent = "Reading status";
+
+    const deletCardBtn = document.createElement("button");
+    deletCardBtn.classList.add("delete-btn");
+    deletCardBtn.textContent = "Delete";
+
+    btnContainer.appendChild(readCardBtn);
+    btnContainer.appendChild(deletCardBtn);
+    bookDiv.appendChild(btnContainer);
+
+    booksContainer.appendChild(bookDiv);
+
+    deletCardBtn.addEventListener("click", () => {
+      myLibrary.splice(index, 1);
+      displayBooks();
+    });
+
+    readCardBtn.addEventListener("click", () => {
+      if (readP.textContent === "Read.") {
+        readP.textContent = "Not read yet.";
+      } else {
+        readP.textContent = "Read.";
+      }
+    });
+  });
 }
 
 console.log(myLibrary);

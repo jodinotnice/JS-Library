@@ -1,0 +1,109 @@
+@import "node_modules/modern-normalize/modern-normalize.css";
+
+* {
+  font-family: "Roboto", serif;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.flex-top {
+  display: flex;
+  justify-content: space-between;
+
+  height: 13%;
+  box-shadow: 0px 22px 15px -18px rgba(0, 0, 0, 0.1);
+}
+
+.showDialog {
+  margin: 20px 10px 20px 0;
+  border-radius: 10px;
+  border: none;
+  max-height: 50px;
+  max-width: 90px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.dialogModal {
+  border: none;
+  border-radius: 10px;
+  height: 30%;
+  min-height: 225px;
+}
+
+#books-form {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat((4, 1fr));
+}
+
+#books-form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#books-form input {
+  width: 50%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 5px;
+}
+
+#books-form input:focus {
+  outline: none;
+}
+
+#books-form input[type="checkbox"] {
+  height: 20px;
+  outline: none;
+}
+
+.confirm-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.main-title {
+  margin-left: 10px;
+}
+
+#books-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-left: 5%;
+  margin-right: 5%;
+  gap: 30px;
+}
+
+.book-card {
+  padding: 0 10px 15px 10px;
+  max-width: 200px;
+  max-height: 220px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 15px 9px rgba(0, 0, 0, 0.1);
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.read-btn,
+.delete-btn {
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
